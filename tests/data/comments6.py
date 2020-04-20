@@ -55,8 +55,8 @@ def f(
     an_element_with_a_long_value = calls() or more_calls() and more()  # type: bool
 
     tup = (
-        another_element,  # type: int
-        another_really_really_long_element_with_a_unnecessarily_long_name_to_describe_what_it_does_enterprise_style,  # type: int
+        another_element,
+        another_really_really_long_element_with_a_unnecessarily_long_name_to_describe_what_it_does_enterprise_style,
     )  # type: Tuple[int, int]
 
     a = (
@@ -67,6 +67,20 @@ def f(
         + another_element
         + another_element_with_long_name
     )  # type: int
+
+
+def f(
+    x,  # not a type comment
+    y,  # type: int
+):
+    # type: (...) -> None
+    pass
+
+
+def f(
+    x,  # not a type comment
+):  # type: (int) -> None
+    pass
 
 
 def func(
@@ -84,3 +98,19 @@ def func(
         0.0789,
         a[-1],  # type: ignore
     )
+
+    c = call(
+        "aaaaaaaa", "aaaaaaaa", "aaaaaaaa", "aaaaaaaa", "aaaaaaaa", "aaaaaaaa", "aaaaaaaa"  # type: ignore
+    )
+
+
+result = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # aaa
+
+AAAAAAAAAAAAA = [AAAAAAAAAAAAA] + SHARED_AAAAAAAAAAAAA + USER_AAAAAAAAAAAAA + AAAAAAAAAAAAA  # type: ignore
+
+call_to_some_function_asdf(
+    foo,
+    [AAAAAAAAAAAAAAAAAAAAAAA, AAAAAAAAAAAAAAAAAAAAAAA, AAAAAAAAAAAAAAAAAAAAAAA, BBBBBBBBBBBB],  # type: ignore
+)
+
+aaaaaaaaaaaaa, bbbbbbbbb = map(list, map(itertools.chain.from_iterable, zip(*items)))  # type: ignore[arg-type]
